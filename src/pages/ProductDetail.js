@@ -11,6 +11,8 @@ const ProductDetail = () => {
   const products = useSelector((state) => state.products.products);
 
   const product = products.find((p) => p.id === parseInt(productId));
+  const category = useSelector((state) => state.categories.categories.find((cat) => cat.id === parseInt(product?.categoryId)));
+
   const cartItem = cartItems.find((item) => item.id === parseInt(productId));
   const selectedQuantity = cartItem ? cartItem.quantity : 0;
 
@@ -21,6 +23,10 @@ const ProductDetail = () => {
   }
 
   return (
+    <>
+    <Typography variant="h6" sx={{ my: 2 }}>
+            {category ? `Categories/${category.name}/${product.name}` : "Category Not Found"}
+          </Typography>
     <Box sx={{ padding: 2 }}>
       <Grid container xs={12} sx={{ display: "flex", flexDirectioin: "row" }}>
         <Grid
@@ -70,6 +76,7 @@ const ProductDetail = () => {
         </Grid>
       </Grid>
     </Box>
+    </>
   );
 };
 

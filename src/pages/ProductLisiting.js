@@ -9,12 +9,16 @@ const ProductListing = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.products);
+  const category = useSelector((state) => state.categories.categories.find((cat) => cat.id === parseInt(categoryId)));
 
 
   const filteredProducts = products.filter((p) => p.categoryId === parseInt(categoryId) && p.active);
 
   return (
     <>
+        <Typography variant="h5" sx={{ my: 2 }}>
+        {category ? `Categories/${category.name}` : "Category Not Found"}
+      </Typography>
     <Grid container spacing={2} sx={{ padding: 2 }}>
       {filteredProducts.map((product) => (
         <Grid item xs={12} sm={6} md={2.5} key={product.id}>

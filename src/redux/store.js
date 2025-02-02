@@ -11,13 +11,16 @@ const persistConfig = {
   storage
 };
 
+const persistedCartReducer = persistReducer(persistConfig, cartReducer);
+const persistedProductReducer = persistReducer(persistConfig, productReducer);
 const persistedOrderReducer = persistReducer(persistConfig, orderReducer);
+const persistedCategoryReducer = persistReducer(persistConfig, categoryReducer);
 
 const store = configureStore({
   reducer: {
-    cart: cartReducer,
-    products: productReducer,
-    categories: categoryReducer,
+    cart: persistedCartReducer,
+    products: persistedProductReducer,
+    categories: persistedCategoryReducer,
     orders: persistedOrderReducer
   }
 });

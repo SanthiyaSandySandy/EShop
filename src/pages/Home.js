@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <>
-    <h1>Categories</h1>
+     <Typography variant="h4" sx={{ my: 2 }}>Categories</Typography>
     <Grid container spacing={2} sx={{ padding: 2 }}>
       {categories.map((category) => (
         <Grid item xs={12} sm={6} md={3} key={category.id}>

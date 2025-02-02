@@ -19,7 +19,7 @@ import {
   Switch,
 } from "@mui/material";
 
-const EditProduct = () => {
+const ProductsPage = () => {
   const { categoryId } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -112,4 +112,4 @@ const EditProduct = () => {
   );
 };
 
-export default EditProduct;
+export default ProductsPage;
