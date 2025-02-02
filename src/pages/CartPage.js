@@ -25,7 +25,7 @@ const CartPage = () => {
 
   const handlePlaceOrder = () => {
     if (!cartItems.length) return;
-    dispatch(clearOrder());
+    // dispatch(clearOrder());
     const totalAmount = cartItems.reduce(
       (sum, item) => sum + item.price * item.quantity,
       0
