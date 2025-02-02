@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { placeOrder, clearOrder } from "../redux/orderSlice";
+import { placeOrder} from "../redux/orderSlice";
 import { updateStock } from "../redux/productSlice";
 import { removeFromCart, addToCart, clearCart } from "../redux/cartSlice";
 import {
@@ -25,7 +25,6 @@ const CartPage = () => {
 
   const handlePlaceOrder = () => {
     if (!cartItems.length) return;
-    // dispatch(clearOrder());
     const totalAmount = cartItems.reduce(
       (sum, item) => sum + item.price * item.quantity,
       0
