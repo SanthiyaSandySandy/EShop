@@ -6,19 +6,18 @@ import productReducer from "./productSlice";
 import categoryReducer from "./categorySlice";
 import orderReducer from "./orderSlice";
 
-const persistConfig = {
-  key: "root",
-  storage
-};
+const productPersistConfig = { key: "product", storage };
+const categoryPersistConfig = { key: "category", storage };
+const orderPersistConfig = { key: "order", storage };
 
-const persistedCartReducer = persistReducer(persistConfig, cartReducer);
-const persistedProductReducer = persistReducer(persistConfig, productReducer);
-const persistedOrderReducer = persistReducer(persistConfig, orderReducer);
-const persistedCategoryReducer = persistReducer(persistConfig, categoryReducer);
+
+const persistedProductReducer = persistReducer(productPersistConfig, productReducer);
+const persistedOrderReducer = persistReducer(orderPersistConfig, orderReducer);
+const persistedCategoryReducer = persistReducer(categoryPersistConfig, categoryReducer);
 
 const store = configureStore({
   reducer: {
-    cart: persistedCartReducer,
+    cart: cartReducer,
     products: persistedProductReducer,
     categories: persistedCategoryReducer,
     orders: persistedOrderReducer

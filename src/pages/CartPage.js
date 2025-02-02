@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { placeOrder} from "../redux/orderSlice";
+import { clearOrder, placeOrder} from "../redux/orderSlice";
 import { updateStock } from "../redux/productSlice";
 import { removeFromCart, addToCart, clearCart } from "../redux/cartSlice";
 import {
@@ -29,6 +29,7 @@ const CartPage = () => {
       (sum, item) => sum + item.price * item.quantity,
       0
     );
+    // dispatch(clearOrder())
     dispatch(placeOrder({ items: cartItems, totalAmount }));
     dispatch(updateStock(cartItems));
     dispatch(clearCart());
